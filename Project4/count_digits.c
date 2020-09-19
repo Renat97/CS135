@@ -88,3 +88,52 @@ for(int i = 0; i < rows; i++) {
 	return 0;
 
 }
+
+// function to read each of the rows of the 2d Array
+int read_row(int row, int col) {
+
+	int value = 9999;
+  int isValid = 0;
+ // only print the prompt for the first row
+	if (col == 0) {
+
+		printf("Enter row %d values (0 - 9, separated by spaces): ", row);
+
+		while (!isValid) {
+			for (int j = 0; j < (cols); j++) {
+
+				int inputCache = 9999;
+
+				scanf("%d", &inputCache);
+				// if it passes
+				if (check_input(inputCache)) {
+					storageArray[j] = inputCache;
+
+					if (j == (cols-1)) { //If the final number has been parsed successfully, stop the loop
+						isValid = 1;
+
+					}
+
+				} else {
+					printf("%d is not an integer between 0 and 9\nEnter the row's %d values  (0 - 9, separated by spaces): ", inputCache, row);
+
+					isValid = 0;
+
+					// the rest are scanned in
+					int remainingValues = 0;
+
+					for (int jj = 0; jj < (col - j - 1); jj++) {
+						scanf("%d", &remainingValues);
+
+					}
+
+					break; //Exit the for loop if an invalid value is found
+
+				}
+			}
+		}
+	}
+
+	return storageArray[col];
+
+}
