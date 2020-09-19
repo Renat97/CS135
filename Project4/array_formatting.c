@@ -97,3 +97,44 @@ for(int j = 0; j < rows; j++) {
 
 
 }
+
+int read_row(int row, int col) {
+ int value = 9999;
+ int isValid = 0;
+
+ if(col == 0) {
+   printf(" Enter row values for row %d: ", row);
+
+   while(!isValid) {
+     for(int j = 0; j < (cols); j++) {
+       int inputCache = 9999;
+
+       scanf("%d", &inputCache);
+       // if it passes
+       if(checkInput(inputCache)) {
+         storageArr[j] = inputCache;
+        // we have reached the end of the row
+       if(j == cols- 1) {
+         isValid = 1;
+       }
+
+       } else {
+         printf("%d is not an integer between 0 and 9.\n Enter the row's %d values.): ", inputCache, row);
+
+         isValid = 0;
+
+         // the rest are scanned in
+          int remainingValues = 0;
+
+          for (int jj = 0; jj < (col - j - 1); jj++) {
+						scanf("%d", &remainingValues);
+
+					}
+
+          break; // exit the for loop if there is an invalid number
+       }
+     }
+   }
+ }
+ return storageArr[col];
+}
