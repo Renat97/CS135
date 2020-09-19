@@ -138,3 +138,60 @@ int read_row(int row, int col) {
  }
  return storageArr[col];
 }
+
+int checkInput(int val) {
+  if(val >= 0 && val <= 9) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+int format_row(int linesCount, int charCount, char rightSpot, char inBetween, int alignment, int theRow[alignment]) {
+  for (int i = 0; i < linesCount; i++) {
+		printf("\n");
+
+	}
+
+	for (int i = 0; i < cols; i++) {
+		int value = theRow[i], count = 0;
+    // divide value by 10 to see how many place it can fit, for example 10 is two, 100 is 3
+		while (value != 0) {
+			value /= 10;
+
+			count++;
+
+		}
+
+		if (rightSpot == 'r') {
+			for (int j = 0; j < (charCount - count); j++) {
+				printf(" ");
+
+			}
+      // to print the character that is placed in between rows
+			if(i + 1 != cols) {
+        printf("%d%c", theRow[i], inBetween);
+
+      // otherwise just print thr row
+			} else {
+				printf("%d", theRow[i]);
+			}
+
+		} else {
+			printf("%d", theRow[i]);
+
+			for (int k = 0; k < (charCount - count); k++) {
+				printf(" ");
+
+			}
+
+			if (i + 1 != cols) {
+				printf("%c", inBetween);
+			}
+		}
+  }
+
+	printf("\n");
+
+
+}
