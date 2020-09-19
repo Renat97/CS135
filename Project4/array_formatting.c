@@ -16,6 +16,7 @@ int check_Format(int Size);
 // global variables
 int storageArr[500] = {0};
 int rows = -1, cols = -1;
+int biggestVal = 0, largestValCount = 1;
 
 int main() {
 
@@ -193,5 +194,55 @@ int format_row(int linesCount, int charCount, char rightSpot, char inBetween, in
 
 	printf("\n");
 
+
+}
+
+int format_array (int numOfNewLine, int element, char justify, char inBetween, int colNum, int rowNum, int arr[rowNum][colNum]) {
+	printf("Your formatted array is:\n");
+
+	int rowToUse[colNum];
+
+	for (int i = 0; i < rowNum; i++) {
+		for (int j = 0; j < colNum; j++) {
+			rowToUse[j] = arr[i][j];
+
+		}
+
+	format_row (numOfNewLine, element, justify, inBetween, colNum, rowToUse);
+
+	}
+
+}
+
+int check_format (int theSize) {
+	if (theSize < largestValCount) {
+		printf("There are array elements larger than %d digits.\n", theSize);
+		return 0;
+
+	} else {
+		return 1;
+
+	}
+
+}
+
+//A function that checks if the new value is the largest in the array
+int check_input (int checkedVal) {
+	if (checkedVal > biggestVal) {
+		biggestVal = checkedVal;
+  // sets the biggest cal to current
+		int theCount = 0;
+
+		while (checkedVal != 0) {
+			checkedVal /= 10;
+
+			theCount++;
+
+		}
+
+		largestValCount = theCount;
+	}
+
+	return 1;
 
 }
