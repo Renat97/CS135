@@ -137,3 +137,30 @@ int read_row(int row, int col) {
 	return storageArray[col];
 
 }
+
+// checking the input
+int check_input(int num) {
+	if(num <= 9 && num >= 0) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+int compute_row_count(int value) {
+  intOccurrences[value]+=1;
+}
+// print the total count for each digit in the final array
+
+int print_total_count(int arrCount[10]) {
+	printf("The total count for each digit:\n");
+
+	for(int i = 0; i < 10; i++) {
+		if(arrCount[i] > 1 || arrCount[i] == 0) {
+			printf("Digit %d occurs %d times\n", i, arrCount[i]);
+		}else  {
+			printf("Digit %d occurs %d time.\n", i, arrCount[i]);
+		}
+	}
+
+	return 0;
+}
