@@ -1,13 +1,26 @@
-var fs = require('fs');
-console.log("Enter a file name: ");
-var fileName = process.stdin.on('data', function(data) {
-    return data;
-});
-var fileContents = fs.readFile(fileName + '.txt' , 'utf8' , function (err, data) {
-  if(err) {
-    console.log(err);
-    return;
-  }
-});
+var prompt = require('prompt-sync')({sigint: true});
 
-console.log(fileContents);
+var nameToAdd = [];
+
+var count = prompt('How many names do you want to enter? ')
+
+for(var i = 0; i < count; i++) {
+nameToAdd[i] = prompt('Enter full name ' + i + ' ');
+}
+console.log('Thank you!');
+
+function sortAscending(name) {
+
+}
+function sortDescending(name) {
+
+}
+function sortByFirstName(name) {
+
+}
+function sortByLastName(name) {
+
+}
+function sortByMiddleName(name) {
+
+}
