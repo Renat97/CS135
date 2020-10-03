@@ -1,0 +1,1 @@
+simple program implementing a game of Blackjack. Compiled with gcc and ran with "./a.out"
